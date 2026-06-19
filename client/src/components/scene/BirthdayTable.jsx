@@ -465,7 +465,7 @@ function BirthdayCake({ materials, candlesLit, cakeCut }) {
           pointerEvents: 'none',
           userSelect: 'none',
         }}>
-          🎂 Joyeux Anniversaire
+          🎂 Happy Birthday
         </div>
       </Html>
     </group>

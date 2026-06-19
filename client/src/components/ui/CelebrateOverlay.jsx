@@ -118,7 +118,7 @@ export default function CelebrateOverlay() {
       {phase === 'message' && (
         <div className={styles.message}>
           <div className={styles.messageEmoji}>🎂</div>
-          <h2 className={styles.messageTitle}>Joyeux Anniversaire!</h2>
+          <h2 className={styles.messageTitle}>Happy Birthday!</h2>
           <p className={styles.messageText}>
             Wishing you a day filled with joy, laughter, and all things beautiful.
             <br />

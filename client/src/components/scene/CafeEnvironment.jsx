@@ -493,7 +493,7 @@ function HangingLamps({ materials }) {
 // Birthday Banner (string of triangular flags)
 // ─────────────────────────────────────────────────────
 function BirthdayBanner({ materials }) {
-  const letters = 'JOYEUX ANNIVERSAIRE'.split('');
+  const letters = 'HAPPY BIRTHDAY'.split('');
   const colors = ['#FF6B9D', '#FFD166', '#F4A261', '#56D8CD', '#5B86E5'];
 
   return (
