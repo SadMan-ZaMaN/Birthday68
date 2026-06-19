@@ -1,0 +1,22 @@
+.cakeSvg {
+  width: 90px;
+  height: 90px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 24px rgba(255, 209, 102, 0.45));
+  z-index: 1;
+}
+
+.svgFlame {
+  transform-origin: 50px 12px;
+  animation: svgFlicker 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes svgFlicker {
+  0% { transform: scale(0.9) rotate(-3deg); opacity: 0.85; }
+  100% { transform: scale(1.15) rotate(3deg); opacity: 1; }
+}

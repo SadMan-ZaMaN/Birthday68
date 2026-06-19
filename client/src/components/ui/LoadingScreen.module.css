@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0D0721 0%, #1A0F2E 40%, #2D1B4E 100%);
+  z-index: 90;
+  pointer-events: none;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cakeEmoji {
+  font-size: 5rem;
+  animation: float 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(255,209,102,0.5));
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.bar {
+  width: 240px;
+  height: 4px;
+  background: rgba(255,209,102,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--amber) 100%);
+  border-radius: 2px;
+  animation: load 2.5s ease-in-out forwards;
+}
+
+@keyframes load {
+  from { width: 0%; }
+  to   { width: 95%; }
+}
+
+.message {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
