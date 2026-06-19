@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useThree } from '@react-three/fiber';
-import { Html } from '@react-three/drei';
+import React, { useState, useMemo } from 'react';
+import { useThree, useLoader } from '@react-three/fiber';
+import { Html, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import gsap from 'gsap';
 import useStore from '../../store/useStore';
 import { PHOTOS, FRAME_POSITIONS } from '../../config/photos';
 
 /**
- * PhotoFrames — decorative frames on café walls.
+ * PhotoFrames — decorative frames on café walls showing actual photos.
  * Click a frame to smoothly zoom the camera toward it and open the gallery.
  */
 export default function PhotoFrames() {
@@ -64,6 +64,9 @@ export default function PhotoFrames() {
   );
 }
 
+/**
+ * Individual photo frame with real texture loaded from /photos/.
+ */
 function PhotoFrame({ position, rotationY, photo, onClick, index }) {
   const [hovered, setHovered] = useState(false);
 
@@ -72,16 +75,23 @@ function PhotoFrame({ position, rotationY, photo, onClick, index }) {
   const frameDepth = 0.04;
   const borderW = 0.05;
 
-  const frameMat = new THREE.MeshStandardMaterial({
-    color: hovered ? '#E8C547' : '#B8860B',
-    roughness: 0.3,
-    metalness: 0.7,
-  });
+  // Load the actual photo as a Three.js texture
+  const photoTexture = useTexture(photo.src);
 
-  const matMat = new THREE.MeshStandardMaterial({
+  // Configure the texture for best quality in frames
+  useMemo(() => {
+    if (photoTexture) {
+      photoTexture.colorSpace = THREE.SRGBColorSpace;
+      photoTexture.minFilter = THREE.LinearFilter;
+      photoTexture.magFilter = THREE.LinearFilter;
+      photoTexture.generateMipmaps = false;
+    }
+  }, [photoTexture]);
+
+  const matMat = useMemo(() => new THREE.MeshStandardMaterial({
     color: '#F5F0E8',
     roughness: 0.9,
-  });
+  }), []);
 
   return (
     <group
@@ -110,13 +120,14 @@ function PhotoFrame({ position, rotationY, photo, onClick, index }) {
         <primitive object={matMat} attach="material" />
       </mesh>
 
-      {/* Photo image plane */}
+      {/* Photo image plane — real photo texture */}
       <mesh position={[0, 0, frameDepth / 2 + 0.015]}>
         <planeGeometry args={[frameW - borderW * 3, frameH - borderW * 3]} />
         <meshStandardMaterial
-          color="#FFFFFF"
-          roughness={0.3}
-          // In production: use useTexture(photo.src) here
+          map={photoTexture}
+          roughness={0.4}
+          metalness={0.0}
+          toneMapped={false}
         />
       </mesh>
 
