@@ -6,14 +6,12 @@ import HUD from './components/ui/HUD';
 import GuestBook from './components/ui/GuestBook';
 import GalleryModal from './components/ui/GalleryModal';
 import Notification from './components/ui/Notification';
-import CelebrateOverlay from './components/ui/CelebrateOverlay';
 
 // Lazy-load the heavy 3D scene
 const Scene = lazy(() => import('./components/scene/Scene'));
 
 export default function App() {
   const phase = useStore(s => s.phase);
-  const celebrateActive = useStore(s => s.celebrateActive);
   const activePanel = useStore(s => s.activePanel);
   const galleryOpen = useStore(s => s.galleryOpen);
 
@@ -39,7 +37,6 @@ export default function App() {
           <Notification />
           {activePanel === 'guestbook' && <GuestBook />}
           {galleryOpen && <GalleryModal />}
-          {celebrateActive && <CelebrateOverlay />}
         </>
       )}
     </div>
