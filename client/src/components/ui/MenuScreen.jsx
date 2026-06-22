@@ -159,7 +159,7 @@ export default function MenuScreen() {
         </div>
 
         <div className={styles.features}>
-          {['🎈 Balloons', '🎂 Birthday Cake', '🖼️ Photo Frames', '💌 Albums', '🎊 Surprise Sequence'].map(f => (
+          {['🎈 Balloons', '🎂 Birthday Cake', '🖼️ Photo Frames', '💌 Albums'].map(f => (
             <span key={f} className={styles.feature}>{f}</span>
           ))}
         </div>

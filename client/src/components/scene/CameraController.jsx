@@ -154,10 +154,6 @@ export default function CameraController() {
       const targetCamLook = new THREE.Vector3();
 
       switch (cinematicTarget) {
-        case 'cake':
-          targetCamPos.set(0.65, 1.3, 0.75);
-          targetCamLook.set(0.0, 1.12, 0.0);
-          break;
         case 'decorations':
           targetCamPos.set(0.0, 2.5, -3.2);
           targetCamLook.set(0.0, 4.3, -9.8);

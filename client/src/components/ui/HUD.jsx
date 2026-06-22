@@ -6,7 +6,6 @@ export default function HUD() {
   const localUser       = useStore(s => s.localUser);
   const candlesLit      = useStore(s => s.candlesLit);
   const cakeCut         = useStore(s => s.cakeCut);
-  const celebrateActive = useStore(s => s.celebrateActive);
   const cameraMode      = useStore(s => s.cameraMode);
   const setCameraMode   = useStore(s => s.setCameraMode);
   const setCinematicTarget = useStore(s => s.setCinematicTarget);
@@ -15,7 +14,6 @@ export default function HUD() {
   const toggleAudio     = useStore(s => s.toggleAudio);
   const setCandlesLit   = useStore(s => s.setCandlesLit);
   const setCakeCut      = useStore(s => s.setCakeCut);
-  const setCelebrateActive = useStore(s => s.setCelebrateActive);
   const showNotification = useStore(s => s.showNotification);
 
   const handleBlowCandles = () => {
@@ -36,15 +34,6 @@ export default function HUD() {
   const handleResetCake = () => {
     setCakeCut(false);
     showNotification('Cake reset — ready to cut again! 🎂');
-  };
-
-  const handleCelebrate = () => {
-    setCelebrateActive(true);
-    showNotification('✨ Surprise Celebration! ✨');
-  };
-
-  const handleResetCelebrate = () => {
-    setCelebrateActive(false);
   };
 
   const handleCinematic = (target) => {
@@ -143,7 +132,6 @@ export default function HUD() {
           </button>
           <div className={styles.cinematic}>
             <div className={styles.groupLabel} style={{ marginTop: 4, fontSize: '0.7rem' }}>Cinematic Views</div>
-            <button id="cam-cake-btn" className="btn btn-glass" onClick={() => handleCinematic('cake')}>🎂 Cake</button>
             <button id="cam-overview-btn" className="btn btn-glass" onClick={() => handleCinematic('overview')}>🌃 Overview</button>
           </div>
         </div>
@@ -165,29 +153,6 @@ export default function HUD() {
           >
             🖼️ Gallery
           </button>
-        </div>
-
-        {/* Celebrate */}
-        <div className={styles.group}>
-          <div className={styles.groupLabel}>🎊 Surprise</div>
-          {!celebrateActive ? (
-            <button
-              id="celebrate-btn"
-              className="btn btn-gold"
-              onClick={handleCelebrate}
-              title="Trigger the celebration sequence"
-            >
-              🎊 Celebrate!
-            </button>
-          ) : (
-            <button
-              id="reset-celebrate-btn"
-              className="btn btn-glass"
-              onClick={handleResetCelebrate}
-            >
-              🔄 Reset Celebration
-            </button>
-          )}
         </div>
       </div>
     </div>
