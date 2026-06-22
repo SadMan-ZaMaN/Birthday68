@@ -74,10 +74,6 @@ export default function GalleryModal() {
               loading="eager"
             />
           </div>
-          <div className={styles.caption}>
-            <p className={styles.captionText}>{photo.caption}</p>
-            {photo.date && <p className={styles.captionDate}>{photo.date}</p>}
-          </div>
         </div>
 
         <button

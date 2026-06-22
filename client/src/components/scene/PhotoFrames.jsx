@@ -144,7 +144,7 @@ function PhotoFrame({ position, rotationY, photo, onClick, index }) {
             whiteSpace: 'nowrap',
             pointerEvents: 'none',
           }}>
-            🖼️ Click to view — {photo?.caption}
+            🖼️ Click to view
           </div>
         </Html>
       )}
