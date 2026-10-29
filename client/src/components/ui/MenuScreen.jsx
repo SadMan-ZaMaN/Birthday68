@@ -18,7 +18,7 @@ const SPARKLES = Array.from({ length: 28 }, (_, i) => ({
  * When any prefix of this name is typed (case-insensitive), a special
  * notification appears recognizing the birthday person.
  */
-const BIRTHDAY_NAME = 'mahdiat tarannum';
+const BIRTHDAY_NAME = 'rajin';
 
 export default function MenuScreen() {
   const [username, setUsername] = useState('');
@@ -29,7 +29,7 @@ export default function MenuScreen() {
   const showNotification = useStore(s => s.showNotification);
 
   // ── Birthday name detection ──
-  // Check if what the user is typing is a prefix of "Mahdiat Tarannum".
+  // Check if what the user is typing is a prefix of "Rajin".
   // We require at least 3 characters to avoid false positives on short strings.
   const isTypingBirthdayName = useMemo(() => {
     const typed = username.trim().toLowerCase();
@@ -46,11 +46,11 @@ export default function MenuScreen() {
     let name = username.trim();
     if (!name) { setError('Please enter your name to join 💛'); return; }
 
-    // Check if the user started writing 'mahdiat tarannum' but didn't complete it
+    // Check if the user started writing 'rajin' but didn't complete it
     const lowerName = name.toLowerCase();
     if (lowerName.length >= 3 && BIRTHDAY_NAME.startsWith(lowerName) && lowerName !== BIRTHDAY_NAME) {
-      name = 'Tara';
-      setUsername('Tara');
+      name = 'Rajin';
+      setUsername('Rajin');
     }
 
     if (name.length < 2) { setError('Name must be at least 2 characters'); return; }
@@ -102,7 +102,7 @@ export default function MenuScreen() {
         <SVGCake />
 
         <div className={styles.subtitle}>Happiest Birthday</div>
-        <h1 className={styles.title}>Mahdiat Tarannum</h1>
+        <h1 className={styles.title}>Rajin</h1>
 
         {/* Decorative divider */}
         <hr className={styles.divider} />
@@ -132,7 +132,7 @@ export default function MenuScreen() {
           {/* Birthday name detection notification */}
           {isTypingBirthdayName && (
             <div className={styles.birthdayNotice} role="status">
-              🎉 It&apos;s <strong>Mahdiat Tarannum</strong> obviously right? It&apos;s your birthday! 🎂
+              🎉 It&apos;s <strong>Rajin</strong> obviously right? It&apos;s your birthday! 🎂
             </div>
           )}
 

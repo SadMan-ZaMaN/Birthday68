@@ -120,25 +120,11 @@ export const PHOTOS = [
     placeholder: '/photos2/cc63a56d-8b92-439b-98ac-b3ddf87ab8ab.jpeg',
   },
   {
-    id: 'photo_17',
-    src: '/photos2/dab5a9a6-b652-4d75-a5ba-9f50dae9d071.jpeg',
-    caption: '',
-    date: '',
-    placeholder: '/photos2/dab5a9a6-b652-4d75-a5ba-9f50dae9d071.jpeg',
-  },
-  {
     id: 'photo_18',
     src: '/photos2/e2654af1-b9df-4d08-b5ea-15e75921d581.jpeg',
     caption: '',
     date: '',
     placeholder: '/photos2/e2654af1-b9df-4d08-b5ea-15e75921d581.jpeg',
-  },
-  {
-    id: 'photo_19',
-    src: '/photos2/e578a80f-9077-4ebe-9464-35a67a595ecc.jpeg',
-    caption: '',
-    date: '',
-    placeholder: '/photos2/e578a80f-9077-4ebe-9464-35a67a595ecc.jpeg',
   },
   {
     id: 'photo_20',
